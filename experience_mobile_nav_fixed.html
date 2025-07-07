@@ -1,0 +1,696 @@
+<html>
+  <html lang="en">
+    <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Ishaan Dixit - Experience</title>
+       <style>
+          * {
+              margin: 0;
+              padding: 0;
+              box-sizing: border-box;
+          }
+          
+          body {
+              font-family: 'Arial', sans-serif;
+              line-height: 1.6;
+              color: #333;
+          }
+          
+          .container {
+              max-width: 1200px;
+              margin: 0 auto;
+              padding: 0 20px;
+          }
+          
+          /* Navigation */
+          nav {
+              background: #1a1a1a;
+              color: white;
+              padding: 1rem 0;
+              position: fixed;
+              width: 100%;
+              top: 0;
+              z-index: 1000;
+          }
+          
+          .nav-container {
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+          }
+          
+          .logo {
+              font-size: 1.5rem;
+              font-weight: bold;
+          }
+          
+          .nav-links {
+              display: flex;
+              gap: 2rem;
+          }
+          
+          .nav-links a {
+              color: white;
+              text-decoration: none;
+              transition: color 0.3s;
+          }
+          
+          .nav-links a:hover {
+              color: #3b82f6;
+          }
+          
+          /* Hero Section */
+          .hero {
+              background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+              color: white;
+              min-height: 100vh;
+              display: flex;
+              align-items: center;
+              text-align: center;
+              padding-top: 80px;
+          }
+          
+          .hero-content {
+              background: rgba(29, 78, 216, 0.8);
+              padding: 3rem;
+              border-radius: 15px;
+              border: 2px solid rgba(255, 255, 255, 0.2);
+          }
+          
+          .profile-img {
+              width: 150px;
+              height: 150px;
+              border-radius: 50%;
+              border: 4px solid white;
+              margin: 0 auto 2rem;
+              object-fit: cover;
+          }
+          
+          .hero h1 {
+              font-size: 3rem;
+              margin-bottom: 1rem;
+          }
+          
+          .badge {
+              background: white;
+              color: #3b82f6;
+              padding: 0.5rem 1rem;
+              border-radius: 25px;
+              display: inline-block;
+              margin: 1rem;
+              font-weight: bold;
+          }
+          
+          .hero p {
+              font-size: 1.2rem;
+              margin: 2rem 0;
+              opacity: 0.9;
+          }
+          
+          .btn {
+              background: white;
+              color: #3b82f6;
+              padding: 1rem 2rem;
+              border: none;
+              border-radius: 25px;
+              font-weight: bold;
+              text-decoration: none;
+              display: inline-block;
+              margin-top: 1rem;
+              transition: transform 0.3s;
+          }
+          
+          .btn:hover {
+              transform: scale(1.05);
+          }
+          
+          /* Sections */
+          .section {
+              padding: 5rem 0;
+          }
+          
+          .section h2 {
+              text-align: center;
+              font-size: 2.5rem;
+              color: #3b82f6;
+              margin-bottom: 3rem;
+          }
+          
+          .section-title::after {
+              content: '';
+              display: block;
+              width: 100px;
+              height: 4px;
+              background: linear-gradient(90deg, #3b82f6, #60a5fa);
+              margin: 1rem auto;
+          }
+          
+          /* About Section */
+          .about {
+              background: #f8fafc;
+          }
+          
+          .about-grid {
+              display: grid;
+              grid-template-columns: 1fr 1fr;
+              gap: 3rem;
+              align-items: center;
+          }
+          
+          .about-img {
+              width: 100%;
+              max-width: 400px;
+              height: 400px;
+              object-fit: contain;
+              border-radius: 15px;
+              box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+          }
+          
+          .stats-grid {
+              display: grid;
+              grid-template-columns: repeat(2, 1fr);
+              gap: 1rem;
+              margin: 2rem 0;
+          }
+          
+          .stat-card {
+              background: white;
+              padding: 1.5rem;
+              border-radius: 10px;
+              text-align: center;
+              box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+          }
+          
+          .stat-number {
+              font-size: 2rem;
+              font-weight: bold;
+              color: #3b82f6;
+          }
+          
+          .tags {
+              display: flex;
+              flex-wrap: wrap;
+              gap: 0.5rem;
+              margin-top: 1rem;
+          }
+          
+          .tag {
+              background: #3b82f6;
+              color: white;
+              padding: 0.5rem 1rem;
+              border-radius: 20px;
+              font-size: 0.9rem;
+          }
+          
+          /* Experience Section */
+          .experience-grid {
+              max-width: 800px;
+              margin: 0 auto;
+          }
+          
+          .experience-item {
+              display: flex;
+              margin-bottom: 3rem;
+              gap: 2rem;
+          }
+          
+          .experience-icon {
+              width: 50px;
+              height: 50px;
+              background: #3b82f6;
+              border-radius: 50%;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              color: white;
+              font-weight: bold;
+              flex-shrink: 0;
+          }
+          
+          .experience-content {
+              background: #f8fafc;
+              padding: 2rem;
+              border-radius: 10px;
+              flex: 1;
+              box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+          }
+          
+          .experience-header {
+              display: flex;
+              justify-content: space-between;
+              align-items: flex-start;
+              margin-bottom: 1rem;
+          }
+          
+          .experience-title {
+              font-size: 1.3rem;
+              font-weight: bold;
+              color: #3b82f6;
+          }
+          
+          .experience-period {
+              color: #059669;
+              font-weight: bold;
+              white-space: nowrap;
+          }
+          
+          .experience-company {
+              font-weight: bold;
+              margin-bottom: 0.5rem;
+          }
+          
+          /* Skills Section */
+          .skills-grid {
+              display: grid;
+              grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+              gap: 2rem;
+          }
+          
+          .skill-card {
+              background: white;
+              padding: 2rem;
+              border-radius: 15px;
+              box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+              text-align: center;
+          }
+          
+          .skill-icon {
+              width: 60px;
+              height: 60px;
+              background: #eff6ff;
+              border-radius: 50%;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              margin: 0 auto 1rem;
+              font-size: 1.5rem;
+              color: #3b82f6;
+          }
+          
+          .skill-card h3 {
+              color: #3b82f6;
+              margin-bottom: 1rem;
+          }
+          
+          .skill-list {
+              list-style: none;
+              color: #666;
+          }
+          
+          .skill-list li {
+              margin-bottom: 0.5rem;
+          }
+          
+          /* Achievements Section */
+          .achievements {
+              background: #f8fafc;
+          }
+          
+          .achievements-grid {
+              display: grid;
+              grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+              gap: 2rem;
+          }
+          
+          .achievement-card {
+              background: linear-gradient(135deg, #eff6ff, #dbeafe);
+              padding: 2rem;
+              border-radius: 15px;
+              box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+          }
+          
+          .achievement-header {
+              display: flex;
+              align-items: center;
+              margin-bottom: 1rem;
+          }
+          
+          .achievement-icon {
+              width: 60px;
+              height: 60px;
+              background: #3b82f6;
+              border-radius: 50%;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              margin-right: 1rem;
+              color: white;
+              font-size: 1.5rem;
+          }
+          
+          .achievement-title {
+              color: #3b82f6;
+              font-size: 1.2rem;
+              font-weight: bold;
+          }
+          
+          .achievement-org {
+              color: #1d4ed8;
+              font-weight: 500;
+          }
+          
+          /* Contact Section */
+          .contact-grid {
+              display: grid;
+              grid-template-columns: 1fr 1fr;
+              gap: 3rem;
+          }
+          
+          .contact-info h3 {
+              color: #1a1a1a;
+              margin-bottom: 1rem;
+          }
+          
+          .contact-item {
+              display: flex;
+              align-items: center;
+              margin-bottom: 1.5rem;
+          }
+          
+          .contact-icon {
+              width: 50px;
+              height: 50px;
+              background: #eff6ff;
+              border-radius: 50%;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              margin-right: 1rem;
+              color: #3b82f6;
+          }
+          
+          .contact-form {
+              background: #f8fafc;
+              padding: 2rem;
+              border-radius: 15px;
+          }
+          
+          .form-group {
+              margin-bottom: 1rem;
+          }
+          
+          .form-group label {
+              display: block;
+              font-weight: bold;
+              margin-bottom: 0.5rem;
+          }
+          
+          .form-group input,
+          .form-group textarea {
+              width: 100%;
+              padding: 1rem;
+              border: 2px solid #e5e7eb;
+              border-radius: 8px;
+              font-size: 1rem;
+          }
+          
+          .form-group input:focus,
+          .form-group textarea:focus {
+              outline: none;
+              border-color: #3b82f6;
+          }
+          
+          .form-btn {
+              background: #3b82f6;
+              color: white;
+              padding: 1rem 2rem;
+              border: none;
+              border-radius: 8px;
+              font-size: 1rem;
+              font-weight: bold;
+              cursor: pointer;
+              width: 100%;
+              transition: background 0.3s;
+          }
+          
+          .form-btn:hover {
+              background: #1d4ed8;
+          }
+          
+          /* Footer */
+          footer {
+              background: #1a1a1a;
+              color: white;
+              text-align: center;
+              padding: 3rem 0;
+          }
+          
+          .footer-title {
+              font-size: 1.5rem;
+              font-weight: bold;
+              margin-bottom: 1rem;
+          }
+          
+          .footer-subtitle {
+              color: #9ca3af;
+              margin-bottom: 2rem;
+          }
+          
+          .social-links {
+              display: flex;
+              justify-content: center;
+              gap: 1rem;
+              margin-bottom: 2rem;
+          }
+          
+          .social-link {
+              width: 40px;
+              height: 40px;
+              background: #374151;
+              border-radius: 50%;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              color: white;
+              text-decoration: none;
+              transition: background 0.3s;
+          }
+          
+          .social-link:hover {
+              background: #3b82f6;
+          }
+          
+          .footer-divider {
+              border: none;
+              border-top: 1px solid #374151;
+              margin: 2rem 0;
+          }
+          
+          .footer-copyright {
+              color: #9ca3af;
+          }
+          
+          /* Mobile Responsive */
+          @media (max-width: 768px) {
+              .nav-links {
+                  display: none;
+              }
+              
+              .hero h1 {
+                  font-size: 2rem;
+              }
+              
+              .about-grid,
+              .contact-grid {
+                  grid-template-columns: 1fr;
+              }
+              
+              .experience-item {
+                  flex-direction: column;
+                  gap: 1rem;
+              }
+              
+              .experience-header {
+                  flex-direction: column;
+                  align-items: flex-start;
+              }
+              
+              .stats-grid {
+                  grid-template-columns: 1fr;
+              }
+          }
+      
+.hamburger {
+    display: none;
+    font-size: 2rem;
+    cursor: pointer;
+}
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        gap: 1rem;
+        background-color: #1a1a1a;
+        position: absolute;
+        top: 60px;
+        right: 20px;
+        padding: 1rem;
+        border-radius: 10px;
+    }
+    .hamburger {
+        display: block;
+        color: white;
+    }
+}
+</style>
+    </head>
+    <body>
+      <!-- Navigation -->
+      <nav>
+          <div class="container">
+              <div class="nav-container">
+                  <div class="logo">Ishaan Dixit</div>
+<div class="hamburger" onclick="toggleMenu()">☰</div>
+
+                  <div class="nav-links">
+                      <a href="index.html">Home</a>
+                      <a href="index.html#about">About</a>
+                      <a href="experience.html">Experience</a>
+                      <a href="projects.html">Projects</a>
+                      <a href="index.html#skills">Skills</a>
+                      <a href="index.html#achievements">Achievements</a>
+                      <a href="index.html#contact">Contact</a>
+                  </div>
+              </div>
+          </div>
+      </nav>
+
+       <!-- Hero Section -->
+      
+<section class="hero">
+    <div class="container">
+        <div class="hero-content">
+            <h1>My Experience</h1>
+            <p>Here is the experience I’ve accumulated over the years—through leadership roles, internships, and impactful engagements that have helped shape who I am today.</p>
+        </div>
+    </div>
+</section>
+
+      <!-- Experience Section -->
+      <section id="experience" class="section">
+          <div class="container">
+              <h2 class="section-title">Experience</h2>
+              <div class="experience-grid">
+                  <div class="experience-item">
+                      <div class="experience-icon">🌍</div>
+                      <div class="experience-content">
+                          <div class="experience-header">
+                              <div>
+                                  <div class="experience-title">Director of North American Operations and Outreach</div>
+                                  <div class="experience-company">2cousins</div>
+                              </div>
+                              <div class="experience-period">Sept 2024 - Present</div>
+                          </div>
+                          <p>Lead logistics and outreach operations across North America. Assist in identifying and partnering with orphanages in India to provide essential services and support to underserved communities.</p>
+                      </div>
+                  </div>
+  
+                  <div class="experience-item">
+                      <div class="experience-icon">👥</div>
+                      <div class="experience-content">
+                          <div class="experience-header">
+                              <div>
+                                  <div class="experience-title">Executive Officer</div>
+                                  <div class="experience-company">Cypress Bay DECA</div>
+                              </div>
+                              <div class="experience-period">Dec 2024 - Jun 2025</div>
+                          </div>
+                          <p>Part of officer team that plans events, manages chapter operations, executes projects, and fosters positive experiences for students. Previously served as DLC (Student Leader) from Aug 2023 - Dec 2024.</p>
+                      </div>
+                  </div>
+  
+                  <div class="experience-item">
+                      <div class="experience-icon">🎓</div>
+                      <div class="experience-content">
+                          <div class="experience-header">
+                              <div>
+                                  <div class="experience-title">BigFuture Ambassador</div>
+                                  <div class="experience-company">The College Board</div>
+                              </div>
+                              <div class="experience-period">Feb 2025 - Present</div>
+                          </div>
+                          <p>Ambassador for the College Board's BigFuture platform, helping spread awareness of college planning resources and assisting classmates and underclassmen with their educational journey.</p>
+                      </div>
+                  </div>
+  
+                  <div class="experience-item">
+                      <div class="experience-icon">📊</div>
+                      <div class="experience-content">
+                          <div class="experience-header">
+                              <div>
+                                  <div class="experience-title">Instructor</div>
+                                  <div class="experience-company">Mathnasium - The Math Learning Center</div>
+                              </div>
+                              <div class="experience-period">Jan 2024 - Nov 2024</div>
+                          </div>
+                          <p>Guided students through various mathematics concepts and courses, providing personalized instruction and support to help students achieve their academic goals.</p>
+                      </div>
+                  </div>
+  
+                  <div class="experience-item">
+                      <div class="experience-icon">📱</div>
+                      <div class="experience-content">
+                          <div class="experience-header">
+                              <div>
+                                  <div class="experience-title">Marketing Intern</div>
+                                  <div class="experience-company">Unravel Digital Media • Delhi, India</div>
+                              </div>
+                              <div class="experience-period">Jun 2024 - Aug 2024</div>
+                          </div>
+                          <p>Gained hands-on experience in digital and offline marketing channels, social media marketing, email marketing, SEO, and product management in a fast-paced agency environment.</p>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </section>
+       <!-- Footer -->
+      <footer>
+          <div class="container">
+              <div class="footer-title">Ishaan Dixit</div>
+              <div class="footer-subtitle">Aspiring Business Leader | Eagle Scout | Making a Positive Impact</div>
+              <div class="social-links">
+                  <a href="https://www.linkedin.com/in/ishaan-dixit" class="social-link" target="_blank">
+                      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg" alt="LinkedIn" style="width: 20px; height: 20px;">
+                  </a>
+                  
+                  <a href="mailto:dixitji.ishaan@gmail.com" class="social-link">
+                      📧
+                  </a>
+                  
+                  <a href="https://www.credly.com/users/ishaan-dixit" class="social-link" target="_blank">
+                      <img src="https://www.svgviewer.dev/static-svgs/34436/credly.svg" alt="Credly" style="width: 20px; height: 20px;">
+                  </a>
+              </div>
+              <hr class="footer-divider">
+              <div class="footer-copyright"></div>
+          </div>
+      </footer>
+  
+      
+    
+
+
+
+<script>
+function toggleMenu() {
+    const navLinks = document.querySelector(".nav-links");
+    navLinks.style.display = navLinks.style.display === "flex" ? "none" : "flex";
+}
+
+// Close menu after a link is clicked (on mobile)
+document.addEventListener("DOMContentLoaded", function () {
+    const links = document.querySelectorAll(".nav-links a");
+    links.forEach(link => {
+        link.addEventListener("click", () => {
+            const navLinks = document.querySelector(".nav-links");
+            if (window.innerWidth <= 768) {
+                navLinks.style.display = "none";
+            }
+        });
+    });
+});
+</script>
+
+</body>
+</html>
