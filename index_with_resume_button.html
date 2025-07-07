@@ -1,0 +1,845 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ishaan Dixit - Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Navigation */
+        nav {
+            background: #1a1a1a;
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: #3b82f6;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+            color: white;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            padding-top: 80px;
+        }
+        
+        .hero-content {
+            background: rgba(29, 78, 216, 0.8);
+            padding: 3rem;
+            border-radius: 15px;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 4px solid white;
+            margin: 0 auto 2rem;
+            object-fit: cover;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .badge {
+            background: white;
+            color: #3b82f6;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            display: inline-block;
+            margin: 1rem;
+            font-weight: bold;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin: 2rem 0;
+            opacity: 0.9;
+        }
+        
+        .btn {
+            background: white;
+            color: #3b82f6;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 25px;
+            font-weight: bold;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 1rem;
+            transition: transform 0.3s;
+        }
+        
+        .btn:hover {
+            transform: scale(1.05);
+        }
+        
+        /* Sections */
+        .section {
+            padding: 5rem 0;
+        }
+        
+        .section h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            color: #3b82f6;
+            margin-bottom: 3rem;
+        }
+        
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(90deg, #3b82f6, #60a5fa);
+            margin: 1rem auto;
+        }
+        
+        /* About Section */
+        .about {
+            background: #f8fafc;
+        }
+        
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+        
+        .about-img {
+            width: 100%;
+            max-width: 400px;
+            height: 400px;
+            object-fit: contain;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+        
+        .stat-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .stat-number {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #3b82f6;
+        }
+        
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+        
+        .tag {
+            background: #3b82f6;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+        
+        /* Experience Section */
+        .experience-grid {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .experience-item {
+            display: flex;
+            margin-bottom: 3rem;
+            gap: 2rem;
+        }
+        
+        .experience-icon {
+            width: 50px;
+            height: 50px;
+            background: #3b82f6;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+        
+        .experience-content {
+            background: #f8fafc;
+            padding: 2rem;
+            border-radius: 10px;
+            flex: 1;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .experience-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+        }
+        
+        .experience-title {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #3b82f6;
+        }
+        
+        .experience-period {
+            color: #059669;
+            font-weight: bold;
+            white-space: nowrap;
+        }
+        
+        .experience-company {
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+        
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .skill-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        
+        .skill-icon {
+            width: 60px;
+            height: 60px;
+            background: #eff6ff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            font-size: 1.5rem;
+            color: #3b82f6;
+        }
+        
+        .skill-card h3 {
+            color: #3b82f6;
+            margin-bottom: 1rem;
+        }
+        
+        .skill-list {
+            list-style: none;
+            color: #666;
+        }
+        
+        .skill-list li {
+            margin-bottom: 0.5rem;
+        }
+        
+        /* Achievements Section */
+        .achievements {
+            background: #f8fafc;
+        }
+        
+        .achievements-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 2rem;
+        }
+        
+        .achievement-card {
+            background: linear-gradient(135deg, #eff6ff, #dbeafe);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .achievement-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+        
+        .achievement-icon {
+            width: 60px;
+            height: 60px;
+            background: #3b82f6;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1rem;
+            color: white;
+            font-size: 1.5rem;
+        }
+        
+        .achievement-title {
+            color: #3b82f6;
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+        
+        .achievement-org {
+            color: #1d4ed8;
+            font-weight: 500;
+        }
+        
+        /* Contact Section */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+        
+        .contact-info h3 {
+            color: #1a1a1a;
+            margin-bottom: 1rem;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: #eff6ff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1rem;
+            color: #3b82f6;
+        }
+        
+        .contact-form {
+            background: #f8fafc;
+            padding: 2rem;
+            border-radius: 15px;
+        }
+        
+        .form-group {
+            margin-bottom: 1rem;
+        }
+        
+        .form-group label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid #e5e7eb;
+            border-radius: 8px;
+            font-size: 1rem;
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #3b82f6;
+        }
+        
+        .form-btn {
+            background: #3b82f6;
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            width: 100%;
+            transition: background 0.3s;
+        }
+        
+        .form-btn:hover {
+            background: #1d4ed8;
+        }
+        
+        /* Footer */
+        footer {
+            background: #1a1a1a;
+            color: white;
+            text-align: center;
+            padding: 3rem 0;
+        }
+        
+        .footer-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+        
+        .footer-subtitle {
+            color: #9ca3af;
+            margin-bottom: 2rem;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+        
+        .social-link {
+            width: 40px;
+            height: 40px;
+            background: #374151;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: background 0.3s;
+        }
+        
+        .social-link:hover {
+            background: #3b82f6;
+        }
+        
+        .footer-divider {
+            border: none;
+            border-top: 1px solid #374151;
+            margin: 2rem 0;
+        }
+        
+        .footer-copyright {
+            color: #9ca3af;
+        }
+        
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .about-grid,
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .experience-item {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .experience-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <div class="nav-container">
+                <div class="logo">Ishaan Dixit</div>
+                <div class="nav-links">
+                    <a href="#home">Home</a>
+                    <a href="#about">About</a>
+                    <a href="experience.html">Experience</a>
+                    <a href="projects.html">Projects</a>
+                    <a href="index.html#skills">Skills</a>
+                    <a href="index.html#achievements">Achievements</a>
+                    <a href="index.html#contact">Contact</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <img src="headshot.png" alt="Ishaan Dixit" class="profile-img">
+                <h1>Ishaan Dixit</h1>
+                <div>
+                    <span class="badge">🏆 Eagle Scout</span>
+                    <span class="badge">Business Management & Data Analysis</span>
+                </div>
+                <p>Director of North American Operations at 2cousins | DECA Executive Officer | Passionate about leadership, marketing, and making a positive impact</p>
+                <a href="#contact" class="btn">Get In Touch</a>
+<a href="Ishaan Dixit Resume (2).pdf" download class="btn btn-secondary" style="margin-left: 1rem;">Resume</a>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section about">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-grid">
+                <div>
+                    <img src="headshot.png" alt="Ishaan Dixit" class="about-img">
+                </div>
+                <div>
+                    <h3 style="color: #3b82f6; font-size: 1.5rem; margin-bottom: 1rem;">Aspiring Business Leader & Eagle Scout</h3>
+                    <p style="margin-bottom: 1rem; color: #4b5563;">Currently a high school student at Cypress Bay High School with a passion for business management and data analysis. As an Eagle Scout, I've developed strong leadership skills and a commitment to community service that drives everything I do.</p>
+                    <p style="margin-bottom: 2rem; color: #4b5563;">I'm actively involved in various leadership roles, from directing operations at 2cousins to serving as an Executive Officer in DECA. My experience spans digital marketing, team management, and strategic planning, all while maintaining a focus on making a positive impact in my community.</p>
+                    
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-number">6+</div>
+                            <div>Years in Scouting</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">5+</div>
+                            <div>Leadership Roles</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">4</div>
+                            <div>Certifications</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">2026</div>
+                            <div>Graduation Year</div>
+                        </div>
+                    </div>
+                    
+                    <div class="tags">
+                        <span class="tag">Business Management</span>
+                        <span class="tag">Data Analysis</span>
+                        <span class="tag">Leadership</span>
+                        <span class="tag">Digital Marketing</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="section">
+        <div class="container">
+            <h2 class="section-title">Skills & Expertise</h2>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <div class="skill-icon">👥</div>
+                    <h3>Leadership & Management</h3>
+                    <ul class="skill-list">
+                        <li>• Team Leadership</li>
+                        <li>• Project Management</li>
+                        <li>• Strategic Planning</li>
+                        <li>• Operations Management</li>
+                    </ul>
+                </div>
+
+                <div class="skill-card">
+                    <div class="skill-icon">📊</div>
+                    <h3>Business & Analytics</h3>
+                    <ul class="skill-list">
+                        <li>• Data Analysis</li>
+                        <li>• Business Operations</li>
+                        <li>• Market Research</li>
+                        <li>• Performance Metrics</li>
+                    </ul>
+                </div>
+
+                <div class="skill-card">
+                    <div class="skill-icon">📢</div>
+                    <h3>Marketing & Outreach</h3>
+                    <ul class="skill-list">
+                        <li>• Digital Marketing</li>
+                        <li>• Social Media Strategy</li>
+                        <li>• Content Creation</li>
+                        <li>• Community Outreach</li>
+                    </ul>
+                </div>
+
+                <div class="skill-card">
+                    <div class="skill-icon">🧠</div>
+                    <h3>Problem Solving</h3>
+                    <ul class="skill-list">
+                        <li>• Critical Thinking</li>
+                        <li>• Creative Solutions</li>
+                        <li>• Process Improvement</li>
+                        <li>• Innovation</li>
+                    </ul>
+                </div>
+
+                <div class="skill-card">
+                    <div class="skill-icon">💬</div>
+                    <h3>Communication</h3>
+                    <ul class="skill-list">
+                        <li>• Public Speaking</li>
+                        <li>• Presentation Skills</li>
+                        <li>• Cross-cultural Communication</li>
+                        <li>• Stakeholder Relations</li>
+                    </ul>
+                </div>
+
+                <div class="skill-card">
+                    <div class="skill-icon">❤️</div>
+                    <h3>Community Service</h3>
+                    <ul class="skill-list">
+                        <li>• Volunteer Coordination</li>
+                        <li>• Nonprofit Operations</li>
+                        <li>• Youth Mentoring</li>
+                        <li>• Social Impact</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Achievements Section -->
+    <section id="achievements" class="section achievements">
+        <div class="container">
+            <h2 class="section-title">Achievements & Certifications</h2>
+            <div class="achievements-grid">
+                <div class="achievement-card">
+                    <div class="achievement-header">
+                        <div class="achievement-icon">🏆</div>
+                        <div>
+                            <div class="achievement-title">Eagle Scout</div>
+                            <div class="achievement-org">Boy Scouts of America</div>
+                        </div>
+                    </div>
+                    <p>Achieved the highest rank in Boy Scouts of America, demonstrating leadership, community service, and project management skills through a comprehensive Eagle Scout project.</p>
+                </div>
+
+                <div class="achievement-card">
+                    <div class="achievement-header">
+                        <div class="achievement-icon">👥</div>
+                        <div>
+                            <div class="achievement-title">ICDC Qualifier - State Champion</div>
+                            <div class="achievement-org">DECA Inc.</div>
+                        </div>
+                    </div>
+                    <p>Top 8 Competitors in Florida for the Hospitality and Tourism Professional Selling Event. Qualifier for the International Career Development Conference.</p>
+                </div>
+
+                
+                <div class="achievement-card">
+                    <div class="achievement-header">
+                        <div class="achievement-icon">📈</div>
+                        <div>
+                            <div class="achievement-title">Fundamentals of Digital Marketing</div>
+                            <div class="achievement-org">Google</div>
+                        </div>
+                    </div>
+                    <p>Completed comprehensive training through Google, demonstrating proficiency in data analysis, reporting, and digital marketing metrics.</p>
+                </div>
+
+                <div class="achievement-card">
+                    <div class="achievement-header">
+                        <div class="achievement-icon">💵</div>
+                        <div>
+                            <div class="achievement-title">Quickbooks Certified User</div>
+                            <div class="achievement-org">Intuit</div>
+                        </div>
+                    </div>
+                    <p>Earned certification in financial accounting, demonstrating proficiency in cloud-based accounting, financial management, and bookkeeping through hands-on application of industry-standard tools.</p>
+                </div>
+                
+                <div class="achievement-card">
+                    <div class="achievement-header">
+                        <div class="achievement-icon">👨‍💼</div>
+                        <div>
+                            <div class="achievement-title">ESB: Entrepreneurship & Small Business</div>
+                            <div class="achievement-org">Certiport</div>
+                        </div>
+                    </div>
+                    <p>Earned the ESB: Entrepreneurship and Small Business certification, demonstrating knowledge of core business principles, entrepreneurial concepts, and the skills needed to start, manage, and grow a small business.</p>
+                </div>
+
+                <div class="achievement-card">
+                    <div class="achievement-header">
+                        <div class="achievement-icon">📊</div>
+                        <div>
+                            <div class="achievement-title">Microsoft Office Specialist</div>
+                            <div class="achievement-org">Microsoft</div>
+                        </div>
+                    </div>
+                    <p>Earned Microsoft Office Specialist certification, demonstrating advanced proficiency in Microsoft Word, Excel, and PowerPoint through hands-on application of productivity, document creation, and data management skills.</p>
+                </div>
+
+                <div class="achievement-card">
+                    <div class="achievement-header">
+                        <div class="achievement-icon">💻</div>
+                        <div>
+                            <div class="achievement-title">MTA: Intro to Programming Using Python</div>
+                            <div class="achievement-org">Microsoft</div>
+                        </div>
+                    </div>
+                    <p>Earned the MTA: Introduction to Programming Using Python certification, demonstrating foundational knowledge of programming concepts, problem-solving, and application development through practical coding experience in Python.</p>
+                </div>
+
+
+                <div class="achievement-card">
+                    <div class="achievement-header">
+                        <div class="achievement-icon">❤️</div>
+                        <div>
+                            <div class="achievement-title">CPR Certified</div>
+                            <div class="achievement-org">American Heart Association</div>
+                        </div>
+                    </div>
+                    <p>Earned CPR Certification, demonstrating the ability to respond to medical emergencies with life-saving techniques, including chest compressions, rescue breathing, and basic first aid in critical situations.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section">
+        <div class="container">
+            <h2 class="section-title" style="color: #1a1a1a;">Get In Touch</h2>
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h3>Let's Connect</h3>
+                    <p style="color: #4b5563; margin-bottom: 2rem;">I'm always interested in new opportunities, collaborations, and meaningful conversations. Whether you're looking for leadership, marketing expertise, or just want to connect, I'd love to hear from you.</p>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">📧</div>
+                        <div>
+                            <div style="font-weight: bold;">Email</div>
+                            <div style="color: #4b5563;">dixitji.ishaan@gmail.com</div>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">📞</div>
+                        <div>
+                            <div style="font-weight: bold;">Phone</div>
+                            <div style="color: #4b5563;">(561) 421-7899</div>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">📍</div>
+                        <div>
+                            <div style="font-weight: bold;">Location</div>
+                            <div style="color: #4b5563;">South Florida</div>
+                        </div>
+                    </div>
+                </div>
+                
+               
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-title">Ishaan Dixit</div>
+            <div class="footer-subtitle">Aspiring Business Leader | Eagle Scout | Making a Positive Impact</div>
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/ishaan-dixit" class="social-link" target="_blank">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg" alt="LinkedIn" style="width: 20px; height: 20px;">
+                </a>
+                
+                <a href="mailto:dixitji.ishaan@gmail.com" class="social-link">
+                    📧
+                </a>
+                
+                <a href="https://www.credly.com/users/ishaan-dixit" class="social-link" target="_blank">
+                    <img src="https://www.svgviewer.dev/static-svgs/34436/credly.svg" alt="Credly" style="width: 20px; height: 20px;">
+                </a>
+            </div>
+            <hr class="footer-divider">
+            <div class="footer-copyright"></div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
